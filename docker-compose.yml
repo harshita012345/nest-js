@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  mongo:
+    build:
+      context: ./mongodb_rs
+      # restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo123
+      MONGO_DATABASE: mongo
+      MONGO_REPLICA_HOST: localhost
+      MONGO_REPLICA_PORT: 27017
+      MONGO_COMMAND: mongo
+    ports:
+      - '27017:27017'
+
+# version: '3.8'
+# services:
+#   dev-db:
+#     image: postgres:13
+#     ports: 
+#       - 5434:5432
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: 123
+#       POSTGRES_DB: nest
+#     networks: 
+#       - freecodecamp
+# networks: 
+#   freecodecamp:
